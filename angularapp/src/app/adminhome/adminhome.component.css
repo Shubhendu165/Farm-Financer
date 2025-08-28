@@ -1,0 +1,299 @@
+.content {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 800px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color:#306754;
+    /* -webkit-text-stroke: 1px black; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  .content p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+  }
+  /* Centering the Dashboard Title */
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Container for Counters */
+  .counter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Individual Counter Box Styling */
+  .counter-box {
+    background: #306754;
+    color: white;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* .counter-box:hover {
+    background: yellow;
+    color: black; /* Optional: improves readability on yellow */
+    /* transform: scale(1.05);
+  } */ */
+  
+  .counter-box:hover {
+    background-color: yellow !important;
+    color: black !important;
+    transform: scale(1.05);
+  }
+  
+  
+  .counter-box:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Counter Numbers */
+  .counter {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  /* Counter Labels */
+  .counter-box p {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+  
+  /* Animation for Counting Effect */
+  @keyframes countAnimation {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  .counter {
+    animation: countAnimation 1s ease-in-out;
+  }
+  
+  
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  img .video-background {
+    position: fixed;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: 92%;
+    object-fit: cover;
+  
+      z-index: -10; /* Pushes background further behind */
+  
+  }
+  
+  .overlay {
+     position: absolute;
+    pointer-events: none; /* Allows clicks to pass through */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 105%;
+    /* margin-top: 115px; */
+    background: rgba(0, 0, 0, 0.308); /* dark overlay for readability */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 0px;
+  }
+  
+  h1 {
+    font-size: 3em;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 1.2em;
+    margin-top: 1em;
+  }
+  .footer-section {
+    background-color: #2e3b42;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    }
+    
+    .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    }
+    
+    .footer-logo, .footer-links, .footer-contact, .footer-social {
+    flex: 1;
+    margin: 20px;
+    }
+    
+    .footer-links ul {
+    list-style: none;
+    padding: 0;
+    }
+    
+    .footer-links ul li {
+    margin: 5px 0;
+    }
+    
+    .footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    }
+    
+    .footer-social .social-icon {
+    display: block;
+    margin: 5px 0;
+    color: #fff;
+    text-decoration: none;
+    }
+    
+    .footer-bottom {
+    padding: 10px 0;
+    background-color: #1d252b;
+    }
+  
+  
+    /* ===== Footer ===== */
+  .footer {
+    background-color: #1a1a1a;
+    color: #cccccc;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    font-size: 14px;
+    border-top: 1px solid #333;
+  }
+  
+  .footer a {
+    color: #06d6a0;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #ffd166;
+  }
+  
+  .footer .social-media {
+    margin-top: 20px;
+  }
+  
+  .footer .social-icon {
+    margin: 0 10px;
+    font-size: 18px;
+    color: #cccccc;
+    transition: color 0.3s ease;
+  }
+  
+  .footer .social-icon:hover {
+    color: #06d6a0;
+  }
+  
+  
+  .footer-heart{text-align:center;font-family: open sans, sans-serif;}
+  
+  .footer-heart a{border-bottom: 1px solid #453886;color: #453886;padding-bottom: .25em; text-decoration: none;}
+  
+  .footer-heart a:hover{color:#2196f3; background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23453886' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: 20%;
+    border-bottom: 0;
+    padding-bottom: .3em;
+    text-decoration: none;}
+  
+  .emoji{vertical-align: middle;}
+  
+  /*  this is for the footer logo*/
+  
+
+  .content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #3e4e2c;
+  }
+  
+  .content h1 {
+    font-size: 2.5em;
+    color: #4caf50;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+  }
+  
+  .content p {
+    margin-bottom: 20px;
+  }
+
+  .content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #3e4e2c;
+  
+    /* Y-axis transform animation */
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  @keyframes slideUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .content h1 {
+    font-size: 2.5em;
+    color: #4caf50;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+  }
+  
+  .content p {
+    margin-bottom: 20px;
+  }
+  
+  

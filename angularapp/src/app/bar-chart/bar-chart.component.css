@@ -1,0 +1,47 @@
+.chart-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px;
+  }
+  
+  .chart-box {
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    width: 500px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+  }
+  
+  .chart-box:hover {
+    background-color: #5a3e2b; /* darker shade of #d9dc1d */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .chart-box h2 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .chart-box:hover h2 {
+    color: white;
+  }
+  
+  canvas {
+    max-width: 100%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  canvas:hover {
+    transform: scale(1.02);
+  }
+  
