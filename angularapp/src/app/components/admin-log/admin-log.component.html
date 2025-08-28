@@ -1,0 +1,22 @@
+
+<app-adminnav></app-adminnav>
+
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Admin Logger</h1>
+  </div>
+
+  <ag-grid-angular
+    style="width: 100%; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    rowSelection="single"
+    [animateRows]="true"
+    [defaultColDef]="{
+      filter: true,
+      floatingFilter: true,
+      resizable: true
+    }">
+  </ag-grid-angular>
+</div>

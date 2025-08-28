@@ -1,0 +1,102 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FeedbackService } from 'src/app/services/feedback.service';
+import { Feedback } from 'src/app/models/feedback.model';
+import Swal from 'sweetalert2'; // Import SweetAlert2
+ 
+@Component({
+  selector: 'app-userviewfeedback',
+  templateUrl: './userviewfeedback.component.html',
+  styleUrls: ['./userviewfeedback.component.css']
+})
+export class UserviewfeedbackComponent implements OnInit {
+  feedbacks: Feedback[] = [];
+  selectedFeedback: Feedback | null = null;
+  showDeleteModal: boolean = false;
+  showLogoutModal: boolean = false;
+  errorMessage: string = '';
+  loading:boolean=false;
+ 
+  constructor(private feedbackService: FeedbackService, private router: Router) {}
+ 
+  ngOnInit(): void {
+    
+    this.loadFeedbacks();
+  }
+ 
+  loadFeedbacks(): void {
+    this.loading=true;
+    const userId = +localStorage.getItem('userId');
+    
+    this.feedbackService.getAllFeedbacksByUserId(userId).subscribe(
+      (data) => {
+        this.feedbacks = data;
+        this.loading=false;
+        if (this.feedbacks.length === 0) {
+          this.errorMessage = 'No data found';
+        }
+      },
+      (error) => {
+        console.error('Error fetching feedbacks:', error);
+        if(error.status!==404){
+          this.errorMessage = 'Failed to load feedbacks.';
+        }else{
+          this.feedbacks=[];
+        }
+        this.loading=false;
+        
+      }
+    );
+  }
+ 
+  confirmDelete(feedback: Feedback): void {
+    localStorage.setItem('FeedbackId',JSON.stringify(feedback));
+    this.selectedFeedback = feedback;
+    this.showDeleteModal = true;
+  }
+ 
+  deleteFeedback(): void {
+    if (this.selectedFeedback) {
+      const storedFeedback = JSON.parse(localStorage.getItem('FeedbackId') || '{}');
+      console.log('Retrieved Feedback ID:', storedFeedback.feedbackId);
+     console.log("Getting Id as=>",storedFeedback.feedbackId);
+     const id=storedFeedback.feedbackId;
+      this.feedbackService.deleteFeedback(id).subscribe(
+        () => {
+          this.showDeleteModal = false;
+          this.loadFeedbacks(); // Reload feedbacks to reflect the deletion
+         
+          // Show SweetAlert2 success message
+          Swal.fire({
+            title: 'Feedback Deleted',
+            text: 'The feedback has been successfully deleted!',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          });
+          this.router.navigate(['/userviewfeedback']);
+        }
+        ,
+        (error) => {
+          console.error('Error deleting feedback:', error);
+          this.errorMessage = 'Failed to delete feedback.';
+        }
+      );
+    }
+  }
+ 
+  logout(): void {
+    this.showLogoutModal = true;
+  }
+ 
+  confirmLogout(): void {
+    this.showLogoutModal = false;
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+ 
+  cancelLogout(): void {
+    this.showLogoutModal = false;
+  }
+}
+ 
+ 

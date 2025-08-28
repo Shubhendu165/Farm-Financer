@@ -1,0 +1,82 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 40px;
+  margin: 0 auto;
+  max-width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  font-family: 'Times New Roman', Times, serif;
+  height: 4.5rem;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-image: url('https://images.pexels.com/photos/2403025/pexels-photo-2403025.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+  /* Brand Container */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffeb3b;
+  }
+
+.navbar-title a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #ffffff;
+  text-shadow: 0 5px 8px rgba(0, 0, 0, 0.6);
+  padding: 6px 14px;
+  border-radius: 18px;
+  transition: background 0.3s ease, color 0.3s ease;
+  margin-left: 20px;
+}
+
+.navbar-links a {
+  margin-left: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-links a:hover,
+.navbar-title a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #5a3e2b; /* Rich brown accent */
+}
+
+.active {
+  font-weight: bold;
+  border-bottom: 2px solid #5a3e2b;
+}

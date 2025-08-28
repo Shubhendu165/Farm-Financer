@@ -1,0 +1,91 @@
+
+<app-adminnav></app-adminnav>
+<div class="image">
+  <div class="edit-loan-container">
+    <h1><strong>Edit Loan</strong></h1>
+    <form #editLoanForm="ngForm" (ngSubmit)="onSubmit(editLoanForm)">
+      
+      <!-- Loan Type -->
+      <div class="form-group">
+        <label for="LoanType">Loan Type</label>
+        <input class="form-control" type="text" id="LoanType" name="LoanType" [(ngModel)]="loan.loanType" required #LoanType="ngModel">
+        <div class="error" *ngIf="(editLoanForm.submitted || LoanType.touched) && LoanType.errors?.required">
+          Loan Type is required
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="Description">Description</label>
+        <input class="form-control" type="text" id="Description" name="Description" [(ngModel)]="loan.description" required #Description="ngModel">
+        <div class="error" *ngIf="(editLoanForm.submitted || Description.touched) && Description.errors?.required">
+          Description is required
+        </div>
+      </div>
+
+      <!-- Interest Rate -->
+      <div class="form-group">
+        <label for="InterestRate">Interest Rate</label>
+        <input class="form-control" type="number" id="InterestRate" name="InterestRate" [(ngModel)]="loan.interestRate" required #InterestRate="ngModel">
+        <div class="error" *ngIf="(editLoanForm.submitted || InterestRate.touched) && InterestRate.errors?.required">
+          Interest Rate is required
+        </div>
+      </div>
+
+      <!-- Maximum Amount -->
+      <div class="form-group">
+        <label for="MaximumAmount">Maximum Amount</label>
+        <input class="form-control" type="number" id="MaximumAmount" name="MaximumAmount" [(ngModel)]="loan.maximumAmount" required #MaximumAmount="ngModel">
+        <div class="error" *ngIf="(editLoanForm.submitted || MaximumAmount.touched) && MaximumAmount.errors?.required">
+          Maximum Amount is required
+        </div>
+      </div>
+
+      <!-- Repayment Tenure -->
+      <div class="form-group">
+        <label for="RepaymentTenure">Repayment Tenure</label>
+        <input class="form-control" type="number" id="RepaymentTenure" name="RepaymentTenure" [(ngModel)]="loan.repaymentTenure" required #RepaymentTenure="ngModel">
+        <div class="error" *ngIf="(editLoanForm.submitted || RepaymentTenure.touched) && RepaymentTenure.errors?.required">
+          Repayment Tenure is required
+        </div>
+      </div>
+
+      <!-- Eligibility -->
+      <div class="form-group">
+        <label for="Eligibility">Eligibility</label>
+        <input class="form-control" type="text" id="Eligibility" name="Eligibility" [(ngModel)]="loan.eligibility" required #Eligibility="ngModel">
+        <div class="error" *ngIf="(editLoanForm.submitted || Eligibility.touched) && Eligibility.errors?.required">
+          Eligibility is required
+        </div>
+      </div>
+
+      <!-- Documents Required -->
+      <div class="form-group">
+        <label for="DocumentsRequired">Documents Required</label>
+        <input class="form-control" type="text" id="DocumentsRequired" name="DocumentsRequired" [(ngModel)]="loan.documentsRequired" required #DocumentsRequired="ngModel">
+        <div class="error" *ngIf="(editLoanForm.submitted || DocumentsRequired.touched) && DocumentsRequired.errors?.required">
+          Documents Required is required
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div style="text-align: center;">
+        <button class="buttons" type="submit">Update Loan</button>
+        <button type="button" class="buttonb" (click)="goBack()">Back</button>
+      </div>
+    </form>
+
+    <!-- Display error message -->
+    <div *ngIf="message" class="error-message">
+      {{ message }}
+    </div>
+
+    <!-- Modal -->
+    <div *ngIf="showModal" class="modal">
+      <div class="modal-content">
+        <p>Updated successfully!</p>
+        <button class="ok-button" (click)="closeModal()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

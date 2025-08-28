@@ -1,0 +1,72 @@
+
+<app-navbar></app-navbar>
+
+<body>
+  <div class="container">
+    <h1>LOGIN</h1>
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="credentials.email"
+          required
+          placeholder="Enter your email"
+          #email="ngModel"
+        />
+        <div class="error" *ngIf="(loginForm.submitted || email.touched) && !credentials.email"><br>
+          Email is required
+        </div>
+        <div class="error" *ngIf="(loginForm.submitted || email.touched) && email.invalid"><br>
+          Invalid email format
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <div class="password-container">
+          <input
+            class="form-control"
+            [type]="passwordFieldType"
+            id="password"
+            name="password"
+            [(ngModel)]="credentials.password"
+            required
+            placeholder="Enter your password"
+            #password="ngModel"
+          />
+          <i
+            class="fa"
+            [ngClass]="passwordFieldType === 'password' ? 'fa-eye' : 'fa-eye-slash'"
+            (click)="togglePasswordVisibility()"
+          ></i>
+        </div>
+        <div class="error" *ngIf="(loginForm.submitted || password.touched) && !credentials.password"><br>
+          Password is required
+        </div>
+      </div>
+
+      <br>
+
+      <!-- Captcha -->
+      <div>
+        <re-captcha
+          siteKey="6Lcph40rAAAAADu9Vthd5jzKcrpsslY3ygtkWevL"
+          (resolved)="onCaptchaResolved($event)"
+        ></re-captcha>
+      </div>
+
+      <br>
+
+      <!-- Submit Button -->
+      <button class="btn btn-success" type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a routerLink="/register">Register here</a></p>
+  </div>
+</body>

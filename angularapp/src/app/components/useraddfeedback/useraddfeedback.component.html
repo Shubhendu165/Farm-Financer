@@ -1,0 +1,49 @@
+<app-usernav></app-usernav>
+<router-outlet></router-outlet>
+
+<div class="image">
+  <div class="feedback-page-container">
+    <div class="Container">
+      <h1>Add Feedback</h1>
+      <form (ngSubmit)="onSubmit()" #feedbackForm="ngForm">
+        <!-- Feedback Input -->
+        <div class="form-group">
+          <label for="feedback">Feedback <span class="required">*</span>:</label>
+          <textarea
+            id="feedback"
+            name="feedback"
+            rows="8"
+            class="form-control"
+            placeholder="Every feedback counts"
+            [(ngModel)]="feedback.FeedbackText"
+            #feedbackField="ngModel"
+            required
+          ></textarea>
+          <div *ngIf="feedbackField.invalid && feedbackField.touched" class="error">
+            Please enter your feedback.
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" [disabled]="feedbackForm.invalid || submitting">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup for success message -->
+  <div *ngIf="isSubmitted" class="popup">
+    <div class="popup-content">
+      <p>Submitted successfully!</p>
+      <button (click)="closePopup()">OK</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <button class="send"><span class="text">Send</span><span class="icon">
+  <svg viewBox="0 0 512.005 512.005">
+    <path d="M511.658 51.675c2.496-11.619-8.895-21.416-20.007-17.176l-482 184a15 15 0 00-.054 28.006L145 298.8v164.713a15 15 0 0028.396 6.75l56.001-111.128 136.664 101.423c8.313 6.17 20.262 2.246 23.287-7.669C516.947 34.532 511.431 52.726 511.658 51.675zm-118.981 52.718L157.874 271.612 56.846 232.594zM175 296.245l204.668-145.757c-176.114 185.79-166.916 176.011-167.684 177.045-1.141 1.535 1.985-4.448-36.984 72.882zm191.858 127.546l-120.296-89.276 217.511-229.462z"></path>
+  </svg></span></button> -->

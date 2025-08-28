@@ -1,0 +1,155 @@
+<!-- <app-usernav></app-usernav>
+
+<div class="image">
+  <div class="view-feedback">
+    <h1>Available Loans</h1>
+    <div class="underline"></div>
+
+    <div class="search-container">
+      <input
+        type="text"
+        id="search"
+        name="search"
+        placeholder="Search..."
+        (input)="searchByLoanName($event.target.value)"
+      />
+    </div>
+
+    <table *ngIf="filteredLoans.length > 0; else noRecords" class="styled-table">
+      <thead>
+        <tr>
+          <th>S No.</th>
+          <th>Loan Type</th>
+          <th>Loan Description</th>
+          <th>Interest Rate</th>
+          <th>Maximum Amount</th>
+          <th>Repayment Tenure (Months)</th>
+          <th>Eligibility</th>
+          <th>Documents Required</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let loan of filteredLoans; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ loan.loanType }}</td>
+          <td>{{ loan.description }}</td>
+          <td class="centered">{{ loan.interestRate }}</td>
+          <td class="centered">{{ loan.maximumAmount }}.00</td>
+          <td class="centered">{{ loan.repaymentTenure }}</td>
+          <td>{{ loan.eligibility }}</td>
+          <td>{{ loan.documentsRequired }}</td>
+          <td class="centered">
+            <button (click)="applyForLoan(loan.loanId)">
+              {{ isLoanApplied(loan.loanId) ? 'Applied' : 'Apply' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noRecords>
+      <div class="no-records">Oops! No records found.</div>
+    </ng-template>
+  </div>
+</div> -->
+
+<!-- <app-usernav></app-usernav>
+
+<div class="image">
+  <div class="view-feedback">
+    <h1>Available Loans</h1>
+    <div class="underline"></div>
+
+    <div class="search-container">
+      <input
+        type="text"
+        id="search"
+        name="search"
+        placeholder="Search..."
+        (input)="searchByLoanName($event.target.value)"
+      />
+    </div>
+
+    <table *ngIf="filteredLoans.length > 0; else noRecords" class="styled-table">
+      <thead>
+        <tr>
+          <th>S No.</th>
+          <th>Loan Type</th>
+          <th>Loan Description</th>
+          <th>Interest Rate</th>
+          <th>Maximum Amount</th>
+          <th>Repayment Tenure (Months)</th>
+          <th>Eligibility</th>
+          <th>Documents Required</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let loan of paginatedLoans; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ loan.loanType }}</td>
+          <td>{{ loan.description }}</td>
+          <td class="centered">{{ loan.interestRate }}</td>
+          <td class="centered">{{ loan.maximumAmount }}.00</td>
+          <td class="centered">{{ loan.repaymentTenure }}</td>
+          <td>{{ loan.eligibility }}</td>
+          <td>{{ loan.documentsRequired }}</td>
+          <td class="centered">
+            <button (click)="applyForLoan(loan.loanId)">
+              {{ isLoanApplied(loan.loanId) ? 'Applied' : 'Apply' }}
+            </button> -->      
+            <!-- <button (click)="applyForLoan(loan.loanId)" 
+            [disabled]="isLoanApplied(loan.loanId)"
+            [ngClass]="{ 'applied-btn': isLoanApplied(loan.loanId), 'apply-btn': !isLoanApplied(loan.loanId) }">
+            {{ isLoanApplied(loan.loanId) ? 'Applied' : 'Apply' }}
+            </button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  <div *ngIf="filteredLoans.length > itemsPerPage" class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{currentPage}} of {{totalPages}}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+
+    <ng-template #noRecords>
+      <div class="no-records">Oops! No records found.</div>
+    </ng-template>
+  </div>
+</div> -->
+
+
+<!-- implementing Ag-grid -->
+
+<app-usernav></app-usernav>
+
+<div class="image">
+  <div class="view-feedback">
+    <h1>Available Loans</h1>
+    <div class="underline"></div>
+
+    <div class="search-container">
+      <input type="text" id="search" name="search" placeholder="Search  by loan type..."
+        (input)="searchByLoanName($event.target.value)" />
+    </div>
+
+    <ag-grid-angular
+      class="ag-theme-alpine ag-grid-custom"
+      style="width: 100%; height: 500px;"
+      class="ag-theme-alpine"
+      [rowData]="filteredLoans"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [pagination]="true"
+      [paginationPageSize]="10">
+    </ag-grid-angular>
+
+    <div *ngIf="filteredLoans.length === 0" class="no-records">
+      Oops! No records found.
+    </div>
+  </div>
+</div>

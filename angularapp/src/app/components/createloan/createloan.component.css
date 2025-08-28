@@ -1,0 +1,188 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: url('https://images.pexels.com/photos/2403025/pexels-photo-2403025.jpeg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Container Styling */
+.image {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Frosted Glass Effect */
+.create-loan-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 50px;
+  padding-right: 70px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+}
+
+/* Header */
+.create-loan-container h1 {
+  text-align: center;
+  color: #d4b08a;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.3);
+}
+
+.create-loan-container h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #d4b08a;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #d4b08a;
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #3b3b3b, #5a3e2b);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+button:hover {
+  background-color: #7a563c;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Required Field Indicator */
+.required {
+  color: red;
+}
+
+/* Messages */
+.error {
+  color: #e57373;
+  font-size: 14px;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.success {
+  color: #2ecc71;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Center the validation message */
+.form-validation-message {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Modal */
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  background-color:rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin: 10% auto;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: 20px;
+}
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #d4b08a;
+  text-decoration: none;
+  cursor: pointer;
+}
+.ok-button{
+  background-color: #986024;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.ok-button:hover {
+  background-color: #e74c3c;
+}

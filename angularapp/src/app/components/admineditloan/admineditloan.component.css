@@ -1,0 +1,169 @@
+.edit-loan-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 15px;
+    width: 450px;
+    color: white;
+}
+
+.image {
+    height: 950px;
+    width: 1265px;
+    background: url('https://images.pexels.com/photos/2403025/pexels-photo-2403025.jpeg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Form Header */
+.edit-loan-container h1 {
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    position: relative;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.3);
+}
+
+/* Input Fields */
+.form-group {
+    margin-bottom: 20px;
+    padding: 5px;
+    text-align: left;
+    margin-right: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #430b0b;
+    font-size: 16px;
+    text-shadow: 0 1px 3px rgba(185, 181, 181, 0.5);
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    border-color: #00bfff;
+    box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+/* Buttons */
+button {
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.buttons {
+    margin-right: 10px;
+    background-color: rgb(3, 5, 3);
+}
+
+.buttonb {
+    background-color: rgb(66, 19, 19);
+}
+
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+/* Error messages */
+.error {
+    color: rgb(215, 2, 2);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Success message */
+.success {
+    color: green;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Center the validation message */
+.form-validation-message {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Modal styles */
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+/* OK Button in Modal */
+.ok-button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ok.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}

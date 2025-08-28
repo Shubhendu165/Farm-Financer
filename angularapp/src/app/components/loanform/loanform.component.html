@@ -1,0 +1,70 @@
+<app-usernav></app-usernav>
+
+<div class="create-loan-container">
+  <h1>Loan Application Form</h1>
+  <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="farmLocation">Farm Location:</label>
+      <input class="form-control" id="farmLocation" formControlName="farmLocation" />
+      <div *ngIf="loanForm.get('farmLocation')?.invalid && loanForm.get('farmLocation')?.touched" class="error">
+        Location is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="farmerAddress">Farmer Address:</label>
+      <input class="form-control" id="farmerAddress" formControlName="farmerAddress" />
+      <div *ngIf="loanForm.get('farmerAddress')?.invalid && loanForm.get('farmerAddress')?.touched" class="error">
+        Farmer Address is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="farmSizeInAcres">Farm Size (in acres):</label>
+      <input class="form-control" id="farmSizeInAcres" formControlName="farmSizeInAcres" />
+      <div *ngIf="loanForm.get('farmSizeInAcres')?.invalid && loanForm.get('farmSizeInAcres')?.touched" class="error">
+        Size is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="farmPurpose">Farm Purpose:</label>
+      <input class="form-control" id="farmPurpose" formControlName="farmPurpose" />
+      <div *ngIf="loanForm.get('farmPurpose')?.invalid && loanForm.get('farmPurpose')?.touched" class="error">
+        Purpose is required
+      </div>
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="file">File:</label>
+      <input type="file" class="form-control" id="file" formControlName="file" />
+    </div> -->
+
+
+    <div class="form-group">
+      <label for="proof">Proof Document<span style="color: red;">*</span></label>`
+      <input type="file" class="form-control" id="proof" name="proof" (change)="onFileChange($event)" required>
+      <br>
+      <small class="form-text text-muted">Only .jpeg, .jpg, .png files are allowed</small>
+      <!-- <div id="error" *ngIf="fileError || !selectedFile" class="error-message">
+        <p class="text-danger">{{ fileError ? fileError : 'Proof Document is required' }}</p>
+      </div> -->
+    </div>
+
+    <div style="text-align: center;">
+      <button class="me-3" type="submit" [disabled]="loanForm.invalid">Apply</button>
+      <button class="ms-2" type="button" (click)="goBack()">Back</button>
+    </div>
+  </form>
+
+  <div *ngIf="showSuccessPopup" class="modal">
+    <div class="modal-content">
+      <p>Application submitted successfully!</p>
+      <button class="ok-button" (click)="closePopup()">OK</button>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>

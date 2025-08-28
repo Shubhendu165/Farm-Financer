@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+
+<body>
+  <div class="container">
+    <h1>Registration</h1>
+    <form #registrationForm="ngForm" (ngSubmit)="onRegister()" class="form">
+
+
+      <!-- Username Field -->
+      <label class="form-label">Username</label>
+      <input class="form-control" type="text" id="username" name="username" placeholder="Username" required
+        pattern="^[a-zA-Z0-9]+$" [(ngModel)]="registrationData.Username" #username="ngModel" />
+      <div class="error" *ngIf="(registrationForm.submitted || username.touched)"><br>
+        <div *ngIf="!registrationData.Username">Username is required</div>
+        <div *ngIf="username.errors?.pattern">Username must be alphanumeric with no spaces</div>
+      </div>
+      <br>
+
+      <!-- Email Field -->
+      <label>Email</label>
+      <input class="form-control" type="email" id="email" name="email" placeholder="Email" required
+        [(ngModel)]="registrationData.Email" #email="ngModel">
+      <div class="error" *ngIf="(registrationForm.submitted || email.touched) && !registrationData.Email">
+        Email is required
+      </div>
+      <div class="error" *ngIf="(registrationForm.submitted || email.touched) && !validateEmail()">
+        Invalid email format
+      </div><br>
+
+      <!-- Password Field -->
+      <label>Password</label>
+      <input class="form-control" type="password" id="password" name="password" placeholder="Password" required
+        [(ngModel)]="registrationData.Password" (input)="validatePassword()" #password="ngModel">
+      <div class="error" *ngIf="(registrationForm.submitted || password.touched) && !registrationData.Password">
+        Password is required
+      </div>
+      <div class="error" *ngIf="(registrationForm.submitted || password.touched) && !isPasswordStrong">
+        {{ passwordError }}
+      </div><br>
+
+      <!-- Confirm Password Field -->
+      <label>Confirm Password</label>
+      <input class="form-control" type="password" id="confirmPassword" name="confirmPassword"
+        placeholder="Confirm Password" required [(ngModel)]="confirmPassword" (input)="passwordMatch()"
+        #confirmPasswordField="ngModel">
+      <div class="error" *ngIf="(registrationForm.submitted || confirmPasswordField.touched) && confirmPassword === ''">
+        Password do not match..
+      </div>
+      <div class="error" *ngIf="(registrationForm.submitted || confirmPasswordField.touched) && !isConfirm">
+        {{ error }}
+      </div><br>
+
+      <!-- Mobile Number Field -->
+      <label>Mobile Number</label>
+      <input class="form-control" type="text" id="mobile" name="mobile" placeholder="Mobile Number" required
+        [(ngModel)]="registrationData.MobileNumber" #mobile="ngModel">
+      <div class="error"
+        *ngIf="(registrationForm.submitted || mobile.touched) && (!registrationData.MobileNumber || registrationData.MobileNumber.length !== 10)">
+        Mobile number must be 10 digits
+      </div>
+      <div class="error" *ngIf="(registrationForm.submitted || mobile.touched) && !validateMobileNumber()">
+        Invalid mobile number format
+      </div><br>
+
+      <!-- Role Field -->
+      <label>Role</label>
+      <select class="form-control" id="role" name="role" required [(ngModel)]="registrationData.UserRole">
+        <option value="">Select a role</option>
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+      </select>
+
+      <!-- Admin Key Field (Conditional) -->
+      <div *ngIf="registrationData.UserRole === 'Admin'">
+        <label class="form-label" for="adminKey">Admin Key</label>
+        <input class="form-control" type="password" id="adminKey" [(ngModel)]="adminSecretKey" name="adminKey" />
+      </div>
+
+      <!-- OTP Section -->
+      <div *ngIf="otpSent">
+        <label for="otp" class="block mb-2 text-sm text-[#0A6847]">Enter OTP</label>
+        <input id="otp" type="text" name="otp" [(ngModel)]="otp" maxlength="6" class="form-control"
+          placeholder="6-digit OTP">
+      </div>
+
+      <!-- Buttons -->
+      <div *ngIf="!otpSent">
+        <button type="button" (click)="sendOtp()" class="btn-otp">
+          {{ submitting ? 'Sending...' : 'Send OTP' }}
+        </button>
+      </div><br>
+
+      <!-- Captcha -->
+      <div>
+        <re-captcha siteKey="6Lcph40rAAAAADu9Vthd5jzKcrpsslY3ygtkWevL"
+          (resolved)="onCaptchaResolved($event)"></re-captcha>
+      </div><br>
+
+      <div *ngIf="otpSent">
+        <button type="submit" [disabled]="submitting"
+          class="w-full bg-green-600 text-white rounded-md p-2.5 text-sm hover:bg-green-700">
+          {{ submitting ? 'Registering...' : 'Verify & Register' }}
+        </button>
+      </div>
+
+      <div class="text-center mt-4">
+        <p class="text-sm text-gray-600">
+          Already have an account?
+          <a routerLink="/login" class="text-green-700 font-semibold hover:underline">Login here</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</body>

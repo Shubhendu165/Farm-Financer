@@ -1,0 +1,112 @@
+/* AG Grid Container */
+.dashboard-container {
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    min-height: calc(100vh - 70px);
+    padding: 2rem;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    align-items: center;
+  }
+  
+  /* AG Grid Table Styling */
+  .ag-theme-alpine {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  /* AG Grid Header */
+  .ag-header {
+    background: linear-gradient(to right, #2c4bcc, #60a5fa);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* AG Grid Rows */
+  .ag-row {
+    transition: background-color 0.2s ease;
+  }
+  
+  .ag-row:nth-child(even) {
+    background-color: #f8fafc;
+  }
+  
+  .ag-row:hover {
+    background-color: #f1f5f9;
+  }
+  
+  /* Action Buttons in AG Grid */
+  .ag-cell .btn {
+    width: 80px;
+    height: 36px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .ag-cell .edit-btn {
+    background-color: rgba(14, 165, 233, 0.1);
+    color: #0ea5e9;
+  }
+  
+  .ag-cell .edit-btn:hover {
+    background-color: #0ea5e9;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(14, 165, 233, 0.25);
+  }
+  
+  .ag-cell .delete-btn {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+  }
+  
+  .ag-cell .delete-btn:hover {
+    background-color: #ef4444;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(239, 68, 68, 0.25);
+  }
+  
+  /* Ensure Table Fits Properly */
+  .ag-theme-alpine {
+    display: block;
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+  }
+  
+  /* Responsive Design for AG Grid */
+  @media (max-width: 992px) {
+    .ag-theme-alpine {
+      overflow-x: auto;
+    }
+  
+    .ag-theme-alpine .ag-header-cell {
+      font-size: 0.85rem;
+    }
+  
+    .ag-theme-alpine .ag-cell {
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ag-theme-alpine {
+      padding: 1rem;
+    }
+  }
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color:#673030;
+    /* -webkit-text-stroke: 1px black; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+  }

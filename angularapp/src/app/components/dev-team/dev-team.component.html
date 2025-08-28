@@ -1,0 +1,16 @@
+<div class="page-bg"></div>
+<div class="animation-wrapper"></div>
+
+<div class="Loan-Details">
+  <h1>Meet the Developers</h1>
+</div>
+
+<div class="view-loan-container">
+  <div class="dev-card" *ngFor="let dev of developers">
+    <img [src]="dev.avatar" [alt]="dev.name" class="avatar" />
+    <h2>{{ dev.name }}</h2>
+    <p><strong>Email:</strong> {{ dev.email }}</p>
+    <p><strong>PS Number:</strong> {{ dev.psNumber }}</p>
+    <p><strong>Topics:</strong> {{ dev.topics }}</p>
+  </div>
+</div>

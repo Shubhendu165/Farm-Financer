@@ -1,0 +1,69 @@
+<app-adminnav></app-adminnav>
+<div class="image">
+<div class="view-loan-container">
+  <div class="Loan-Details">
+    <h1  >Loan Details</h1>
+  </div>
+  
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search by Loan Type or Description"
+      [(ngModel)]="searchTerm"
+      (input)=" searchLoans()"/> 
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Loan Type</th>
+        <th>Description</th>
+        <th>Interest Rate</th>
+        <th>Maximum Amount</th>
+        <th>Repayment Tenure (Months)</th>
+        <th>Eligibility</th>
+        <th>Documents Required</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of paginatedLoans">
+        <td>{{loan.loanType}}</td>
+        <td>{{loan.description}}</td>
+        <td class="td-right">{{loan.interestRate}}</td>
+        <td class="td-right">{{loan.maximumAmount}}.00</td>
+        <td class="td-right">{{loan.repaymentTenure}}</td>
+        <td>{{loan.eligibility}}</td>
+        <td>{{loan.documentsRequired}}</td>
+        <td>
+          <div class="button-main">
+            <button class="editButton" (click)="editLoan(loan.loanId)">Edit</button>
+            <button class="deleteButton" (click)="confirmDelete(loan)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Conditionally show pagination controls if more than 10 records -->
+  <div *ngIf="filteredLoans.length > 10" class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span> Page {{currentPage}} of {{totalPages}} </span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+
+  <!-- Display message -->
+  <div *ngIf="message" class="message">
+    {{ message }}
+  </div>
+</div>
+</div>
+
+<div class="page-bg"></div>
+
+<div class="animation-wrapper">
+  <div class="particle particle-1"></div>
+  <div class="particle particle-2"></div>
+  <div class="particle particle-3"></div>
+  <div class="particle particle-4"></div>
+</div>
+
